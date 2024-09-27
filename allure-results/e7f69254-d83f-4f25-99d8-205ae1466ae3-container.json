@@ -1,0 +1,1 @@
+{"uuid":"e7f69254-d83f-4f25-99d8-205ae1466ae3","name":"org.restFrameworkTests.postTest","children":["089343de-5126-47e9-baff-b263d571052e"],"befores":[{"name":"beforeClass","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1727359895285,"stop":1727359895311}],"afters":[],"start":1727359891772,"stop":1727359896309}
