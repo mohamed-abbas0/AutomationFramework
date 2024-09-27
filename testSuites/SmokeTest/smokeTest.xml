@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="smokeTest">
+    <groups>
+        <run>
+            <include name="smoke_tests"/>
+        </run>
+    </groups>
+    <test name="SmokeTests">
+        <classes>
+            <class name="org.restFrameworkTests.getTest"/>
+            <class name="org.restFrameworkTests.postTest"/>
+        </classes>
+    </test><!-- Test -->
+</suite><!-- Suite -->
