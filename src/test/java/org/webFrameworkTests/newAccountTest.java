@@ -24,7 +24,7 @@ public class newAccountTest {
     String timeStamp;
     newAccountPageHelper newAccountPageHelper;
 
-    @BeforeClass(groups = {"smoke_tests", "valid_test", "invalid_tests", "full_regression_tests", "regression_without_card_statuses_tests"})
+    @BeforeClass(groups = {"smoke_tests", "valid_tests", "invalid_tests", "full_regression_tests"})
     public void beforeClassSetUp() {
         //Create a new folder in each run to save screenshots
         timeStamp = new SimpleDateFormat("(dd-MM-yyyy HH-mm-ss)").format(Calendar.getInstance().getTime());
@@ -37,15 +37,15 @@ public class newAccountTest {
         newAccountPageHelper = new newAccountPageHelper();
     }
 
-    @BeforeMethod(groups = {"smoke_tests", "valid_test", "invalid_tests", "full_regression_tests", "regression_without_card_statuses_tests"})
+    @BeforeMethod(groups = {"smoke_tests", "valid_tests", "invalid_tests", "full_regression_tests"})
     public void beforeMethodSetUp() {
         context = browser.newContext(new Browser.NewContextOptions().setIgnoreHTTPSErrors(true));
         softAssert = new SoftAssert();
         page = context.newPage();
     }
 
-    @Test(priority = 1, groups = {"invalid_tests", "full_regression_tests", "regression_without_card_statuses_tests"})
-    @Description("Check that expired token screen elements (style - text - font) is displayed correctly in arabic language")
+    @Test(priority = 1, groups = {"valid_tests", "full_regression_tests"})
+    @Description("")
     public void test() {
         page.navigate(webUrl);
         page.hover(account_listsBtn);
@@ -56,7 +56,7 @@ public class newAccountTest {
         softAssert.assertAll();
     }
 
-    @AfterMethod(groups = {"smoke_tests", "valid_test", "invalid_tests", "full_regression_tests", "regression_without_card_statuses_tests"})
+    @AfterMethod(groups = {"smoke_tests", "valid_tests", "invalid_tests", "full_regression_tests"})
     public void afterMethodTearDown(ITestResult result) {
         if (result.getStatus() == 1) {
             String path = ".\\Screenshots\\" + timeStamp + "\\Passed\\" + result.getName() + " test screenshot.png";
@@ -68,7 +68,7 @@ public class newAccountTest {
         page.close();
     }
 
-    @AfterClass(groups = {"smoke_tests", "valid_test", "invalid_tests", "full_regression_tests", "regression_without_card_statuses_tests"})
+    @AfterClass(groups = {"smoke_tests", "valid_tests", "invalid_tests", "full_regression_tests"})
     public void afterClassTearDown() {
         context.close();
         browser.close();
