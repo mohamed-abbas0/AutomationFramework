@@ -8,8 +8,7 @@
     </groups>
     <test name="SmokeTests">
         <classes>
-            <class name="org.restFrameworkTests.getTest"/>
-            <class name="org.restFrameworkTests.postTest"/>
+            <class name="webFrameworkTests.FlowTest"/>
         </classes>
     </test><!-- Test -->
 </suite><!-- Suite -->

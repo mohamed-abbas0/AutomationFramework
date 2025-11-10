@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn">
+    <Properties>
+        <Property name="basePath">./Logs</Property>
+        <Property name="baseFilename">automation-framework</Property>
+        <Property name="LOG_PATTERN">
+            [%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] [%C{1}.%M] %X - %msg%n
+        </Property>
+    </Properties>
+    <Appenders>
+        <RollingFile name="debugFileAppender"
+                     fileName="${basePath}/${baseFilename}_debug_${date:yyyy-MM-dd}.log"
+                     filePattern="${basePath}/${baseFilename}_debug_%d{yyyy-MM-dd}.log">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+        </RollingFile>
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Logger name="automationLogger" level="debug" additivity="false">
+            <appender-ref ref="debugFileAppender" level="debug"/>
+            <appender-ref ref="console" level="debug"/>
+        </Logger>
+        <Root level="INFO" additivity="false">
+            <appender-ref ref="console" level="debug"/>
+            <appender-ref ref="debugFileAppender" level="debug"/>
+        </Root>
+    </Loggers>
+</Configuration>
